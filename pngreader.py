@@ -11,7 +11,7 @@ rgblist = flat_data[2].tolist() # convert from (width, height, pixels, metadata)
 padding_index = -1 # start at end of file
 while rgblist[padding_index] == 255: # go from end of file (index -1) to the end of padding (when the RGB values no longer equal 255
     padding_index -= 1
-cutlist = rgblist[0:padding_index] # cut out the trailing padding
+cutlist = rgblist[0:padding_index+1] # cut out the trailing padding
 outarray = array.array('B') # make an array of bytes
 outarray.fromlist(cutlist) # take values from cutlist and convert to bytes
 outarray.tofile(outfile) # write bytes to outfile
